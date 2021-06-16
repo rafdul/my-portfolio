@@ -2,18 +2,68 @@
 
 .headerGroup {
   height: 100vh;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+    background-color: $color-main;
+    width: 40%;
+    height: 100%;
+    z-index: -5;
+  }
 }
 
 .headerBox {
   width: 100%;
+  height: 90vh;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   &__image {
-    flex: 3;
+    flex: 60%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+
+    .circle {
+      position: relative;
+      width: 100%;
+      min-width: 400px;
+      padding-top: 100%;
+      border-radius: 50%;
+      background-color: $color-background-light;
+
+      &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        border-radius: 50%;
+        border: 20px solid $color-main;
+        box-shadow: -6px 2px 13px 6px $color-main;
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 150px;
+        min-height: 150px;
+        max-height: 280px;
+        max-width: 280px;
+        border-radius: 50%;
+        border: 20px solid $color-main;
+      }
+    }
   }
 
   &__slogan {
-    flex: 2;
+    flex: 40%;
   }
 }

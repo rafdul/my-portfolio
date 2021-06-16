@@ -1,0 +1,19 @@
+@import './variables.scss';
+
+.headerGroup {
+  height: 100vh;
+}
+
+.headerBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &__image {
+    flex: 3;
+  }
+
+  &__slogan {
+    flex: 2;
+  }
+}

@@ -1,5 +1,70 @@
 @import './variables.scss';
 
 .navigation {
-  height: 10vh;
+  height: 15vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+
+  .logo {
+    height: 100%;
+    max-width: 300px;
+    display: flex;
+
+    img {
+      width: 100%;
+      margin: auto 0;
+    }
+  }
+
+  .menu {
+    margin: 0 $main-spacing;
+
+    &__main {
+      list-style: none;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      &-item {
+        margin: 0 $main-spacing;
+        font-size: $base-size*1.5;
+        font-weight: 500;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-main;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 880px) {
+  .navigation {
+    .logo {
+      max-width: 200px;
+    }
+
+    .menu {
+      &__main {
+        &-item{
+          font-size: $base-size;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 550px) {
+  .navigation {
+    height: 10vh;
+
+    .logo {
+      max-width: 150px;
+    }
+  }
 }

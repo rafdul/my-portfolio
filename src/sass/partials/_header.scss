@@ -65,5 +65,25 @@
 
   &__slogan {
     flex: 40%;
+    text-align: center;
+
+
+    .banner {
+      padding: 0 $main-spacing*1.5;
+
+      h1, h2 {
+        font-family: $font-second;
+        text-shadow: 2px 4px 8px $color-main;
+      }
+
+      h1 {
+        font-size: $base-size*5;
+      }
+
+      h2 {
+        font-size: $base-size*3;
+      }
+    }
+
   }
 }

@@ -1,8 +1,10 @@
 @import './variables.scss';
+@import './mixins.scss';
 
 .headerGroup {
   height: 100vh;
   position: relative;
+  border-bottom: 2px solid $color-main;
 
   &:before {
     position: absolute;
@@ -12,11 +14,16 @@
     height: 100%;
     z-index: -5;
   }
+
+  .container {
+    @include container;
+  }
 }
 
 .headerBox {
   width: 100%;
   height: 80vh;
+  margin-top: $main-spacing;
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -27,7 +34,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    // align-self: center;
 
     .circle {
       position: relative;
@@ -71,19 +77,36 @@
     .banner {
       padding: 0 $main-spacing*1.5;
 
-      h1, h2 {
+      p {
         font-family: $font-second;
         text-shadow: 2px 4px 8px $color-main;
+        margin: 0;
       }
 
-      h1 {
-        font-size: $base-size*5;
+      p:first-of-type {
+        font-size: $base-size*4;
+        margin: $main-spacing*2.5 0;
       }
 
-      h2 {
-        font-size: $base-size*3;
+      p {
+        font-size: $base-size*2.5;
+      }
+
+      p:last-of-type::after {
+        content: '_';
+        animation: cursor 0.3s infinite alternate;
       }
     }
 
+  }
+}
+
+@keyframes cursor {
+  0%, 30% {
+    opacity: 0;
+  }
+  
+  70%, 100% {
+    opacity: 1;
   }
 }

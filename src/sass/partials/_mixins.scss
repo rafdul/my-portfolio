@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@mixin subtitle {
+  font-family: $font-second;
+  font-size: $base-size*2;
+  font-weight: 700;
+  text-align: center;
+}

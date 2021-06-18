@@ -110,3 +110,16 @@
     opacity: 1;
   }
 }
+
+@media(max-width: 1000px) {
+  .headerBox{
+    &__slogan{
+      .banner{
+        p:first-of-type {
+          margin-top: 0;
+        }
+          
+      }
+    }
+  }
+}

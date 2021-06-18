@@ -1,0 +1,10 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.container {
+  @include container;
+
+  .subtitle {
+    @include subtitle;
+  }
+}

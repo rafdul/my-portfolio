@@ -9,15 +9,21 @@
   }
 
   .projects {
-    margin: $base-size*0.5;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 
     &__item {
+      max-height: 400px;
+      margin: $base-size*0.5;
       flex-basis: 31%;
       position: relative;
       overflow: hidden;
+
+      .image {
+        width: 100%;
+        height: 100%;
+      }
 
       .image img {
         width: 100%;
@@ -38,6 +44,8 @@
         background-color: #60a3bcbf;
         color: $color-text-light;
         text-align: center;
+        // display: none;
+        visibility: hidden;
       }
 
       &:hover {
@@ -48,10 +56,31 @@
         }
 
         .description {
+          visibility: visible;
           display: block;
           transform: translate(-50%,-50%);
           transition: 1s;
         }
+      }
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  .container {
+    .projects {
+      &__item {
+        flex-basis: 46%;
+      }
+    }
+  }
+}
+
+@media(max-width: 550px) {
+  .container {
+    .projects {
+      &__item {
+        flex-basis: 98%;
       }
     }
   }

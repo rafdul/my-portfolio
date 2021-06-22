@@ -1,0 +1,11 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.footer {
+  background-color: $color-main;
+  min-height: 200px;
+
+  .container {
+    @include container;
+  }
+}

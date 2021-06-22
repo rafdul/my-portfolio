@@ -306,8 +306,40 @@
 	<section>
 		<div class="container">
 			<h2 class="subtitle">Kontakt</h2>
+      <div class="form">
+        <div class="form__column">
+          <label for="name" class="form__item">
+            <input type="text" class="form__item-input" name="name" placeholder="Imię">
+          </label>
+          <label for="email" class="form__item">
+            <input type="email" class="form__item-input" name="email" placeholder="Email">
+          </label>
+          <label for="title" class="form__item">
+            <input type="text" class="form__item-input" name="title" placeholder="Tytuł">
+          </label>
+        </div>
+        <div class="form__column">
+          <label for="message" class="form__item">
+            <textarea class="form__item-input form__item-textarea" name="message" placeholder="Wpisz wiadomość" rows="10"></textarea>
+          </label>
+        </div>
+        <div class="sending">
+          <div class="sending__boxcaptcha"></div>
+          <div class="sending__boxbtn">
+            <button class="sending__boxbtn-button">Wyślij</button>
+          </div>
+        </div>
+      </div>
 		</div>
 	</section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo">
+        <!-- <img src="images/portfolio-logo.png" alt="My-portfolio-logo" title="My-portfolio"> -->
+      </div>
+      <div class="footer__menu"></div>
+    </div>
+  </footer>
   <script src="js/script.js"></script>
 </body>
 </html>

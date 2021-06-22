@@ -123,3 +123,71 @@
     }
   }
 }
+
+@media(max-width: 900px) {
+  .headerBox{
+    margin-top: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__image {
+      flex: 100%;
+      max-width: 350px;
+
+      .circle {
+        min-width: 300px;
+
+        &::before {
+          position: absolute;
+          content: '';
+          border: 10px solid $color-main;
+        }
+
+        img {
+          min-width: 100px;
+          min-height: 100px;
+          max-height: 200px;
+          max-width: 200px;
+        }
+      }
+    }
+
+    &__slogan {
+      flex: 100%;
+
+      .banner {
+        p:first-of-type {
+          font-size: $base-size*3;
+          margin: $main-spacing 0;
+        }
+  
+        p {
+          font-size: $base-size*2;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 600px) {
+  .headerBox{
+    &__image {
+      max-width: 300px;
+
+      .circle {
+        img {
+          max-height: 170px;
+          max-width: 170px;
+        }
+      }
+    }
+
+    &__slogan {
+      .banner {
+        p:first-of-type {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

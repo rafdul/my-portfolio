@@ -1,0 +1,117 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.container {
+  @include container;
+
+
+  .subtitle {
+    @include subtitle;
+  }
+
+  .form {
+    margin-bottom: $main-spacing*3;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex: 50%;
+    }
+
+    &__item {
+      width: 100%;
+      text-align: center;
+
+      &-input {
+        width: 80%;
+        margin: $main-spacing;
+        padding: $main-spacing/2;
+        border: none;
+        border-bottom: 3px solid $color-main;
+        background-color: $color-background-light;
+        font-family: $font-text;
+
+        &:focus-visible {
+          outline: 2px solid $color-main;
+          border-bottom: none;
+          background-color: #fff;
+          border-radius: 3px;
+        }
+      }
+
+      &-textarea {
+        border: 3px solid $color-main;
+        border-radius: 3px;
+
+        &:focus-visible {
+          outline: 1px solid $color-main;
+          border: none;
+          background-color: #fff;
+          border-radius: 3px;
+        }
+      }
+    }
+
+    .sending {
+      flex: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+  
+      &__boxcaptcha {
+        flex: 1;
+      }
+  
+      &__boxbtn {
+        flex: 1;
+        text-align: center;
+      }
+
+      &__boxbtn-button {
+        width: $base-size*6;
+        height: $base-size*2.5;
+        padding: $main-spacing/2;
+        font-family: $font-text;
+        font-size: $base-size;
+        border: 2px solid $color-main;
+        cursor: pointer;
+        border-radius: 3px;
+
+        &:hover {
+          color: $color-text-light;
+          background-color: $color-main;
+          font-family: $font-text;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  .container {
+    .form {
+      flex-direction: column;
+    }
+  }
+}
+
+@media(max-width: 450px) {
+  .container {
+    .form {
+      flex-direction: column;
+
+      &__item {
+        &-input {
+          width: 250px;
+        }
+      }
+    }
+  }
+}

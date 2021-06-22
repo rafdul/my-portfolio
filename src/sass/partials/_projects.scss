@@ -14,6 +14,8 @@
     flex-wrap: wrap;
 
     &__item {
+      height: 360px;
+      min-height: 250px;
       max-height: 400px;
       margin: $base-size*0.5;
       flex-basis: 31%;
@@ -46,6 +48,34 @@
         text-align: center;
         // display: none;
         visibility: hidden;
+      }
+
+      .icons {
+        margin: $main-spacing/2 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .icons a {
+        width: 100px;
+        text-align: left;
+        color: white;
+        text-decoration: none;
+        padding: 0 $main-spacing/2;
+      }
+
+      .icons a:hover {
+        text-decoration: underline;
+      }
+
+      .icone-heroku {
+        width: $base-size*2.5;
+      }
+
+      .icone-git {
+        width: $base-size*2.5;
+        font-size: $base-size*2;
       }
 
       &:hover {

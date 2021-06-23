@@ -72,26 +72,41 @@
   
       &__boxcaptcha {
         flex: 1;
+        margin: $main-spacing*1.5;
+      }
+
+      &__boxcaptcha-recaptcha {
+        margin: $main-spacing/2 auto;
+        width: 200px;
+        height: 50px;
+        background-color: goldenrod;
       }
   
       &__boxbtn {
         flex: 1;
         text-align: center;
+        margin: $main-spacing*1.5;
       }
 
       &__boxbtn-button {
-        width: $base-size*6;
-        height: $base-size*2.5;
+        width: $base-size*7;
+        height: $base-size*3;
         padding: $main-spacing/2;
         font-family: $font-text;
         font-size: $base-size;
         border: 2px solid $color-main;
         cursor: pointer;
         border-radius: 3px;
+        background-color: $color-main;
+        color: $color-text-light;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
 
         &:hover {
-          color: $color-text-light;
-          background-color: $color-main;
+          // color: $color-text-light;
+          background-color: #112d38;
+          border-color: #112d38;
           font-family: $font-text;
           transition: 0.5s;
         }
@@ -104,6 +119,10 @@
   .container {
     .form {
       flex-direction: column;
+
+      .sending {
+        flex-direction: column;
+      }
     }
   }
 }

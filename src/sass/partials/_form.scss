@@ -21,6 +21,11 @@
       align-items: center;
       flex-direction: column;
       flex: 50%;
+      height: 220px;
+    }
+
+    &__field {
+      height: $main-spacing*4.5;
     }
 
     &__item {
@@ -47,6 +52,7 @@
       &-textarea {
         border: 3px solid $color-main;
         border-radius: 3px;
+        // margin: 3px;
 
         &:focus-visible {
           outline: 1px solid $color-main;

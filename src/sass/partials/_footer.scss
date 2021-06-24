@@ -36,11 +36,20 @@
         justify-content: space-evenly;
         align-items: center;
         flex-direction: column;
-        color: $color-text-light;
       }
 
       .menu__down-item {
         padding: $main-spacing/2 0;
+        cursor: pointer;
+      }
+
+      .menu__down-item a {
+        text-decoration: none;
+        color: $color-text-light;
+
+        &:hover {
+          color: $color-dark;
+        }
       }
     }
   }

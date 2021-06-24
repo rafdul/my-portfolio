@@ -105,8 +105,8 @@
 
         &:hover {
           // color: $color-text-light;
-          background-color: #112d38;
-          border-color: #112d38;
+          background-color: $color-dark;
+          border-color: $color-dark;
           font-family: $font-text;
           transition: 0.5s;
         }

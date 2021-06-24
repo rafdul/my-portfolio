@@ -28,16 +28,34 @@
       justify-content: space-evenly;
       align-items: center;
 
-      &-item {
+      a {
+        color: $color-text;
+        text-decoration: none;
+
+        &:hover {
+          color: $color-main;
+        }
+      }
+
+      .menu__main-item {
         margin: 0 $main-spacing;
         font-size: $base-size*1.2;
         font-weight: 500;
         text-transform: uppercase;
         cursor: pointer;
+      }
+    }
 
-        &:hover {
-          color: $color-main;
-        }
+    &__hamburger {
+      height: $main-spacing*2.5;
+      display: none;
+
+      &-item {
+        margin: 0 $main-spacing;
+        width: 35px;
+        height: 3px;
+        background-color: $color-text;
+        margin: 4px;
       }
     }
   }
@@ -54,6 +72,25 @@
         &-item{
           font-size: $base-size;
         }
+      }
+    }
+  }
+}
+
+@media(max-width: 750px) {
+  .navigation {
+    .menu {
+      &__main {
+        display: none;
+      }
+
+      &__hamburger {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        cursor: pointer;
       }
     }
   }

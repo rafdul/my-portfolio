@@ -77,9 +77,9 @@
 
       &__boxcaptcha-recaptcha {
         margin: $main-spacing/2 auto;
-        width: 200px;
-        height: 50px;
-        background-color: goldenrod;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
   
       &__boxbtn {
@@ -113,6 +113,17 @@
       }
     }
   }
+}
+
+.sending__boxcaptcha-recaptcha iframe {
+  height: 150px;
+}
+
+.rc-anchor {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 250px;
 }
 
 @media(max-width: 800px) {

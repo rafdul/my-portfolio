@@ -1,11 +1,47 @@
 @import './variables.scss';
 @import './mixins.scss';
 
-.footer {
+.footerBox {
   background-color: $color-main;
   min-height: 200px;
 
   .container {
     @include container;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $main-spacing;
+    margin-left: $main-spacing*2;
+
+    &__logo {
+      max-width: 220px;
+      max-height: 100px;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  
+    &__menu {
+      margin-right: $main-spacing*2.5;
+
+      .menu__down {
+        list-style: none;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        color: $color-text-light;
+      }
+
+      .menu__down-item {
+        padding: $main-spacing/2 0;
+      }
+    }
   }
 }

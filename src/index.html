@@ -336,19 +336,19 @@
         <div class="sending">
           <div class="sending__boxcaptcha">
             <div class="sending__boxcaptcha-recaptcha">
-              <html>
-                <head>
-                  <title>reCAPTCHA demo: Simple page</title>
-                  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                </head>
-                <body>
-                  <form action="?" method="POST">
-                    <div class="g-recaptcha" data-sitekey="6LfKaFMbAAAAAKP--E5vfNvFLn-c194RgHpKeG5F"></div>
-                    <br/>
-                    <input type="submit" value="Submit">
-                  </form>
-                </body>
-              </html>
+              <div>
+                <html>
+                  <head>
+                    <title>reCAPTCHA: portfolio</title>
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                  </head>
+                  <body>
+                    <form action="?" method="POST">
+                      <div class="g-recaptcha" data-sitekey="6LfKaFMbAAAAAKP--E5vfNvFLn-c194RgHpKeG5F"></div>
+                    </form>
+                  </body>
+                </html>
+              </div>
             </div>
           </div>
           <div class="sending__boxbtn">
@@ -358,12 +358,20 @@
       </div>
 		</div>
 	</section>
-  <footer class="footer">
+  <footer class="footerBox">
     <div class="container">
-      <div class="footer__logo">
-        <!-- <img src="images/portfolio-logo.png" alt="My-portfolio-logo" title="My-portfolio"> -->
+      <div class="footer">
+        <div class="footer__logo">
+          <img src="images/portfolio-logo.png" alt="My-portfolio-logo" title="My-portfolio">
+        </div>
+        <div class="footer__menu">
+          <ul class="menu__down">
+            <li class="menu__down-item">O mnie</li>
+            <li class="menu__down-item">Projekty</li>
+            <li class="menu__down-item">Kontakt</li>
+          </ul>
+        </div>
       </div>
-      <div class="footer__menu"></div>
     </div>
   </footer>
   <script src="js/script.js"></script>

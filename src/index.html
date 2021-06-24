@@ -7,6 +7,16 @@
 	<title>My portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="css/style.css">
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/8.6.8/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="/__/firebase/8.6.8/firebase-analytics.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
 </head>
 <body>
 	<section class="headerGroup">
@@ -325,7 +335,21 @@
         </div>
         <div class="sending">
           <div class="sending__boxcaptcha">
-            <div class="sending__boxcaptcha-recaptcha"></div>
+            <div class="sending__boxcaptcha-recaptcha">
+              <html>
+                <head>
+                  <title>reCAPTCHA demo: Simple page</title>
+                  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                </head>
+                <body>
+                  <form action="?" method="POST">
+                    <div class="g-recaptcha" data-sitekey="6LfKaFMbAAAAAKP--E5vfNvFLn-c194RgHpKeG5F"></div>
+                    <br/>
+                    <input type="submit" value="Submit">
+                  </form>
+                </body>
+              </html>
+            </div>
           </div>
           <div class="sending__boxbtn">
             <button type="submit" class="sending__boxbtn-button">Wyślij</button>

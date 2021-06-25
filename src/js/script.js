@@ -43,21 +43,27 @@ const typing = (newTime) => {
 
 typing();
 
-// mobilemenu
+//mobilemenu
 const hamburger = document.querySelector('.menu__hamburger');
 const headerMobile = document.querySelector('.headerMobile');
 const navigationMobile = document.querySelector('.navigation-mobile');
 
 hamburger.addEventListener('click', () => {
   console.log('klik w hamburgera');
-  headerMobile.style.display = 'block';
-  headerMobile.style.transform = `translate(100%, 0%)`;
-  headerMobile.style.transition = '1s';
-  navigationMobile.style.display = 'block';
+
+  if(headerMobile.classList.contains('menuActive')) {
+    headerMobile.classList.remove('menuActive');
+    navigationMobile.style.display = 'none';
+    hamburger.classList.remove('changeHamburger');
+  } else {
+    headerMobile.classList.add('menuActive');
+    navigationMobile.style.display = 'block';
+    hamburger.classList.add('changeHamburger');
+  }
 });
 
 navigationMobile.addEventListener('click', () => {
   console.log('klik w menu mobile');
-  headerMobile.style.display = 'none';
+  headerMobile.classList.remove('menuActive');
   navigationMobile.style.display = 'none';
 });

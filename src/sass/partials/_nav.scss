@@ -21,6 +21,7 @@
 
   .menu {
     margin: 0 $main-spacing;
+    z-index: 9;
 
     &__main {
       list-style: none;
@@ -61,6 +62,31 @@
   }
 }
 
+.navigation-mobile {
+  display: none;
+  text-align: center;
+  z-index: 9;
+
+  .menu__mobile {
+    list-style: none;
+
+    a {
+      color: $color-text-light;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-dark;
+      }
+    }
+
+    a .menu__mobile-item {
+      margin: 10%;      
+    }
+  }
+}
+
 @media(max-width: 880px) {
   .navigation {
     .logo {
@@ -88,11 +114,13 @@
         list-style: none;
         display: flex;
         flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
         cursor: pointer;
       }
     }
+  }
+
+  .navigation-mobile {
+    display: block;
   }
 }
 

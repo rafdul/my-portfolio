@@ -42,3 +42,22 @@ const typing = (newTime) => {
 };
 
 typing();
+
+// mobilemenu
+const hamburger = document.querySelector('.menu__hamburger');
+const headerMobile = document.querySelector('.headerMobile');
+const navigationMobile = document.querySelector('.navigation-mobile');
+
+hamburger.addEventListener('click', () => {
+  console.log('klik w hamburgera');
+  headerMobile.style.display = 'block';
+  headerMobile.style.transform = `translate(100%, 0%)`;
+  headerMobile.style.transition = '1s';
+  navigationMobile.style.display = 'block';
+});
+
+navigationMobile.addEventListener('click', () => {
+  console.log('klik w menu mobile');
+  headerMobile.style.display = 'none';
+  navigationMobile.style.display = 'none';
+});

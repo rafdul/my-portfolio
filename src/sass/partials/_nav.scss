@@ -50,6 +50,8 @@
     &__hamburger {
       height: $main-spacing*2.5;
       display: none;
+      padding: 0;
+      margin: 0;
 
       &-item {
         margin: 0 $main-spacing;
@@ -63,8 +65,16 @@
 }
 
 .changeHamburger {
+  transform: rotate(45deg);
+  transition: 0.5s;
+
   li:not(:nth-child(2)) {
     transform: rotate(90deg) scaleX(0.4);
+    transition: 0.5s;
+  }
+
+  li {
+    background-color: $color-text-light;
     transition: 0.5s;
   }
 }

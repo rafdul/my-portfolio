@@ -7,16 +7,14 @@
 	<title>My portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="css/style.css">
-
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="/__/firebase/8.6.8/firebase-app.js"></script>
-
   <!-- TODO: Add SDKs for Firebase products that you want to use
       https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="/__/firebase/8.6.8/firebase-analytics.js"></script>
-
   <!-- Initialize Firebase -->
   <script src="/__/firebase/init.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 	<section class="headerGroup">
@@ -27,9 +25,9 @@
 				</div>
 				<div class="menu">
 					<ul class="menu__main">
-						<a href="#about"><li class="menu__main-item">O mnie</li></a>
-						<a href="#projects"><li class="menu__main-item">Projekty</li></a>
-						<a href="#contacts"><li class="menu__main-item">Kontakt</li></a>
+						<li class="menu__main-item"><a href="#about">O mnie</a></li>
+						<li class="menu__main-item"><a href="#projects">Projekty</a></li>
+						<li class="menu__main-item"><a href="#contacts">Kontakt</a></li>
 					</ul>
           <ul class="menu__hamburger">
 						<li class="menu__hamburger-item"></li>
@@ -52,18 +50,11 @@
 	</section>
   <section class="headerMobile">
     <div class="container">
-      <!-- <div class="close">
-        <ul class="close__menu">
-          <li class="close__menu-item"></li>
-          <li class="close__menu-item"></li>
-          <li class="close__menu-item"></li>
-        </ul>
-      </div> -->
       <nav class="navigation-mobile">
         <ul class="menu__mobile">
-          <a href="#about"><li class="menu__mobile-item">O mnie</li></a>
-          <a href="#projects"><li class="menu__mobile-item">Projekty</li></a>
-          <a href="#contacts"><li class="menu__mobile-item">Kontakt</li></a>
+          <li class="menu__mobile-item"><a href="#about">O mnie</a></li>
+          <li class="menu__mobile-item"><a href="#projects">Projekty</a></li>
+          <li class="menu__mobile-item"><a href="#contacts">Kontakt</a></li>
         </ul>
       </nav>
     </div>
@@ -336,41 +327,34 @@
 			</div>
 		</div>
 	</section>
-	<section id="contacts"> 
+	<section id="contacts">
 		<div class="container">
 			<h2 class="subtitle">Kontakt</h2>
       <div class="form">
         <div class="form__column">
           <label for="name" class="form__item form__field">
-            <input type="text" class="form__item-input" name="name" placeholder="Imię">
+            <input type="text" class="form__item-input" name="name" id="name" placeholder="Imię">
           </label>
           <label for="email" class="form__item form__field">
-            <input type="email" class="form__item-input" name="email" placeholder="Email">
+            <input type="email" class="form__item-input" name="email" id="email" placeholder="Email">
           </label>
           <label for="title" class="form__item form__field">
-            <input type="text" class="form__item-input" name="title" placeholder="Tytuł">
+            <input type="text" class="form__item-input" name="title" id="title" placeholder="Tytuł">
           </label>
         </div>
         <div class="form__column">
           <label for="message" class="form__item">
-            <textarea class="form__item-input form__item-textarea" name="message" placeholder="Wpisz wiadomość" rows="10"></textarea>
+            <textarea class="form__item-input form__item-textarea" name="message" id="message" placeholder="Wpisz wiadomość" rows="10"></textarea>
           </label>
         </div>
         <div class="sending">
           <div class="sending__boxcaptcha">
             <div class="sending__boxcaptcha-recaptcha">
               <div>
-                <html>
-                  <head>
-                    <title>reCAPTCHA: portfolio</title>
-                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                  </head>
-                  <body>
-                    <form action="?" method="POST">
-                      <div class="g-recaptcha" data-sitekey="6LfKaFMbAAAAAKP--E5vfNvFLn-c194RgHpKeG5F"></div>
-                    </form>
-                  </body>
-                </html>
+                <div class="g-recaptcha" data-sitekey="6LfKaFMbAAAAAKP--E5vfNvFLn-c194RgHpKeG5F"></div>
+                <!-- <div action="?" method="POST">
+                  <div class="g-recaptcha" data-sitekey="6LfKaFMbAAAAAKP--E5vfNvFLn-c194RgHpKeG5F"></div>
+                </div> -->
               </div>
             </div>
           </div>

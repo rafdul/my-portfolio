@@ -24,3 +24,10 @@
   transform: translate(100%, 0%);
   transition: 0.7s;
 }
+
+
+@media(min-width: 750px) {
+  .headerMobile {
+    display: none;
+  }
+}

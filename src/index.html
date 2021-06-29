@@ -12,6 +12,7 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
       https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="/__/firebase/8.6.8/firebase-analytics.js"></script>
+  <script src="/__/firebase/8.6.8/firebase-database.js"></script>
   <!-- Initialize Firebase -->
   <script src="/__/firebase/init.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -330,7 +331,7 @@
 	<section id="contacts">
 		<div class="container">
 			<h2 class="subtitle">Kontakt</h2>
-      <div class="form">
+      <form class="form" method="POST" action="https://formsubmit.co/duleq@op.pl">
         <div class="form__column">
           <label for="name" class="form__item form__field">
             <input type="text" class="form__item-input" name="name" id="name" placeholder="Imię">
@@ -341,6 +342,7 @@
           <label for="title" class="form__item form__field">
             <input type="text" class="form__item-input" name="title" id="title" placeholder="Tytuł">
           </label>
+					<input type="hidden" name="_next" value="https://duluk-portfolio.web.app/">
         </div>
         <div class="form__column">
           <label for="message" class="form__item">
@@ -359,7 +361,7 @@
             <button type="submit" class="sending__boxbtn-button">Wyślij</button>
           </div>
         </div>
-      </div>
+      </form>
 		</div>
 	</section>
   <footer class="footerBox">

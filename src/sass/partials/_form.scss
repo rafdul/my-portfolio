@@ -34,7 +34,7 @@
 
       &-input {
         width: 80%;
-        margin: $main-spacing;
+        // margin: $main-spacing;
         padding: $main-spacing/2;
         border: none;
         border-bottom: 3px solid $color-main;
@@ -61,6 +61,16 @@
           border-radius: 3px;
         }
       }
+    }
+
+    .field-error {
+      background-color: $color-error-background;
+    }
+
+    .form-error-text {
+      color: $color-error-text;
+      font-weight: 700;
+      font-size: $base-size*0.8;
     }
 
     .sending {

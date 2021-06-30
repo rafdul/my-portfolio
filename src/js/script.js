@@ -80,3 +80,86 @@ navigationMobile.addEventListener('click', () => {
     el.style.transition = '0.3s';
   }
 });
+
+//form
+function removeFieldError(field) { //usuwa komunikat o błędzie
+  const errorText = field.nextElementSibling;
+  if (errorText !== null) {
+    if (errorText.classList.contains('form-error-text')) {
+      console.log('errorText', errorText);
+      errorText.remove();
+    }
+  }
+}
+
+function createFieldError(field, text) {
+  removeFieldError(field);
+  const div = document.createElement('div');
+  div.classList.add('form-error-text');
+  div.innerText = text;
+  if (field.nextElementSibling === null) {
+    console.log('field 1:',field);
+    field.parentElement.appendChild(div);
+  } else {
+    if (!field.nextElementSibling.classList.contains('form-error-text')) {
+      console.log('field 2:',field);
+      field.parentElement.insertBefore(div, field.nextElementSibling);
+    }
+  }
+}
+
+function toggleErrorField(field, show) {
+  const errorText = field.nextElementSibling;
+  if (errorText !== null) {
+    if (errorText.classList.contains('form-error-text')) {
+      console.log('errorText', errorText);
+      errorText.style.display = show ? 'block' : 'none';
+    }
+  }
+}
+
+function markFieldAsError(field, show) {
+  if (show) {
+    console.log('field w markFieldAsError 1:',field);
+    field.classList.add('field-error');
+  } else {
+    console.log('field w markFieldAsError 2:',field);
+    field.classList.remove('field-error');
+    toggleErrorField(field, false);
+  }
+}
+
+const form = document.querySelector('.form');
+const inputs = form.querySelectorAll('[required]');
+
+form.setAttribute('novalidate', true);
+
+for (const el of inputs) {
+  el.addEventListener('input', e => markFieldAsError(e.target, !e.target.checkValidity()));
+}
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  let formErrors = false;
+  console.log(formErrors);
+
+  for (const el of inputs) {
+    markFieldAsError(el, false);
+    toggleErrorField(el, false);
+
+    if (!el.checkValidity()) {
+      createFieldError(el, el.dataset.errorText);
+      markFieldAsError(el, true);
+      toggleErrorField(el, true);
+      formErrors = true;
+    }
+  }
+
+  if (!formErrors) {
+    const formData = new FormData(form);
+    console.log('formData', formData);
+  }
+});
+
+

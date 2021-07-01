@@ -142,7 +142,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
 
   let formErrors = false;
-  console.log('formErrors1',formErrors);
+  // console.log('formErrors1',formErrors);
 
   for (const el of inputs) {
     markFieldAsError(el, false);
@@ -161,35 +161,29 @@ form.addEventListener('submit', e => {
     submit.disabled = true;
     submit.classList.add('loading');
 
-    console.log('formErrors2',formErrors);
-    console.log('form', form);
+    // console.log('formErrors2',formErrors);
+    // console.log('form', form);
     const formData = new FormData();
     formData.append('name', document.querySelector('#name').value);
     formData.append('email', document.querySelector('#email').value);
     formData.append('title', document.querySelector('#title').value);
     formData.append('message', document.querySelector('#message').value);
-    console.log('formData', formData);
+    // console.log('formData', formData);
+    const contentInFormData = [];
     for (var p of formData) {
-      console.log(p);
+      contentInFormData.push(p);
     }
-
-    // const dataFromForm = {
-    //   name: document.querySelector('#name').value,
-    //   email: document.querySelector('#email').value,
-    //   title: document.querySelector('#title').value,
-    //   message: document.querySelector('#message').value,
-    // };
-    // const dataToSend = JSON.stringify(dataFromForm);
-    // console.log('dataToSend', dataToSend);
+    console.log('contentInFormData:',contentInFormData);
 
     const url = form.getAttribute('action'); 
     const method = form.getAttribute('method');
 
     fetch(url, {
       method: method,
-      body: formData
+      body: formData,
+      mode: 'no-cors'
     })
-      .then(res => res.json())
+      // .then(res => res.json())
       .then(res => {
         console.log('res', res);
         if (res.errors) { //błędne pola
@@ -200,11 +194,30 @@ form.addEventListener('submit', e => {
             toggleErrorField(el, true);
           }
         } else { //pola są ok - sprawdzamy status wysyłki
-          if (res.status === 'ok') {
-            //wyświetlamy komunikat powodzenia, cieszymy sie
+          if (res.status === 0) {
+            const div = document.createElement('div');
+            div.classList.add('formSend');
+            div.classList.add('formSend__success');
+            div.innerText = 'Wiadomość została wysłana';
+
+            form.parentElement.insertBefore(div, form);
+            div.innerHTML = `
+                <strong>Wiadomość została wysłana</strong>
+                <span>Dziękuję za kontakt. Postaram się odpowiedzieć jak najszybciej</span>
+            `;
+            form.remove();
           }
-          if (res.status === 'error') {
-            //komunikat błędu, niepowodzenia
+          if (res.status === 404) {
+            const statusError = document.querySelector('.formSend__error');
+            if (statusError) {
+              statusError.remove();
+            }
+
+            const div = document.createElement('div');
+            div.classList.add('formSend');
+            div.classList.add('formSend__error');
+            div.innerText = 'Wysłanie wiadomości się nie powiodło';
+            submit.parentElement.appendChild(div);
           }
         }
       })

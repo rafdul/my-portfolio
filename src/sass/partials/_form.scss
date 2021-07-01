@@ -144,6 +144,33 @@
       }
     }
   }
+
+  .formSend {
+    text-align: center;
+    font-size: $base-size*1.3;
+    margin: $main-spacing*3 auto;
+    max-width: 80%;
+
+    &__success {
+      color: $color-success-text;
+    }
+
+    &__error {
+      color: $color-error-text;
+    }
+
+    strong {
+      display: block;
+      margin-bottom: $main-spacing*0.5;
+    }
+
+    span {
+      font-size: $base-size;
+      color: $color-success-text;
+      // font-weight: normal;
+      display: block;
+    }
+  }
 }
 
 .sending__boxcaptcha-recaptcha iframe {

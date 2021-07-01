@@ -86,7 +86,6 @@ function removeFieldError(field) { //usuwa komunikat o błędzie
   const errorText = field.nextElementSibling;
   if (errorText !== null) {
     if (errorText.classList.contains('form-error-text')) {
-      // console.log('errorText', errorText);
       errorText.remove();
     }
   }
@@ -98,11 +97,9 @@ function createFieldError(field, text) {
   div.classList.add('form-error-text');
   div.innerText = text;
   if (field.nextElementSibling === null) {
-    // console.log('field 1:',field);
     field.parentElement.appendChild(div);
   } else {
     if (!field.nextElementSibling.classList.contains('form-error-text')) {
-      // console.log('field 2:',field);
       field.parentElement.insertBefore(div, field.nextElementSibling);
     }
   }
@@ -112,7 +109,6 @@ function toggleErrorField(field, show) {
   const errorText = field.nextElementSibling;
   if (errorText !== null) {
     if (errorText.classList.contains('form-error-text')) {
-      // console.log('errorText', errorText);
       errorText.style.display = show ? 'block' : 'none';
     }
   }
@@ -120,10 +116,8 @@ function toggleErrorField(field, show) {
 
 function markFieldAsError(field, show) {
   if (show) {
-    // console.log('field w markFieldAsError 1:',field);
     field.classList.add('field-error');
   } else {
-    // console.log('field w markFieldAsError 2:',field);
     field.classList.remove('field-error');
     toggleErrorField(field, false);
   }
@@ -142,7 +136,6 @@ form.addEventListener('submit', e => {
   e.preventDefault();
 
   let formErrors = false;
-  // console.log('formErrors1',formErrors);
 
   for (const el of inputs) {
     markFieldAsError(el, false);
@@ -161,7 +154,6 @@ form.addEventListener('submit', e => {
     submit.disabled = true;
     submit.classList.add('loading');
 
-    // console.log('formErrors2',formErrors);
     // console.log('form', form);
     const formData = new FormData();
     formData.append('name', document.querySelector('#name').value);
@@ -181,7 +173,6 @@ form.addEventListener('submit', e => {
     fetch(url, {
       method: method,
       body: formData,
-      mode: 'no-cors'
     })
       // .then(res => res.json())
       .then(res => {
@@ -194,7 +185,7 @@ form.addEventListener('submit', e => {
             toggleErrorField(el, true);
           }
         } else { //pola są ok - sprawdzamy status wysyłki
-          if (res.status === 0) {
+          if (res.status === 200) {
             const div = document.createElement('div');
             div.classList.add('formSend');
             div.classList.add('formSend__success');
@@ -207,7 +198,7 @@ form.addEventListener('submit', e => {
             `;
             form.remove();
           }
-          if (res.status === 404) {
+          if (res.status !== 200) {
             const statusError = document.querySelector('.formSend__error');
             if (statusError) {
               statusError.remove();

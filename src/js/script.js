@@ -86,7 +86,7 @@ function removeFieldError(field) { //usuwa komunikat o błędzie
   const errorText = field.nextElementSibling;
   if (errorText !== null) {
     if (errorText.classList.contains('form-error-text')) {
-      console.log('errorText', errorText);
+      // console.log('errorText', errorText);
       errorText.remove();
     }
   }
@@ -98,11 +98,11 @@ function createFieldError(field, text) {
   div.classList.add('form-error-text');
   div.innerText = text;
   if (field.nextElementSibling === null) {
-    console.log('field 1:',field);
+    // console.log('field 1:',field);
     field.parentElement.appendChild(div);
   } else {
     if (!field.nextElementSibling.classList.contains('form-error-text')) {
-      console.log('field 2:',field);
+      // console.log('field 2:',field);
       field.parentElement.insertBefore(div, field.nextElementSibling);
     }
   }
@@ -112,7 +112,7 @@ function toggleErrorField(field, show) {
   const errorText = field.nextElementSibling;
   if (errorText !== null) {
     if (errorText.classList.contains('form-error-text')) {
-      console.log('errorText', errorText);
+      // console.log('errorText', errorText);
       errorText.style.display = show ? 'block' : 'none';
     }
   }
@@ -120,10 +120,10 @@ function toggleErrorField(field, show) {
 
 function markFieldAsError(field, show) {
   if (show) {
-    console.log('field w markFieldAsError 1:',field);
+    // console.log('field w markFieldAsError 1:',field);
     field.classList.add('field-error');
   } else {
-    console.log('field w markFieldAsError 2:',field);
+    // console.log('field w markFieldAsError 2:',field);
     field.classList.remove('field-error');
     toggleErrorField(field, false);
   }
@@ -142,7 +142,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
 
   let formErrors = false;
-  console.log(formErrors);
+  console.log('formErrors1',formErrors);
 
   for (const el of inputs) {
     markFieldAsError(el, false);
@@ -157,8 +157,61 @@ form.addEventListener('submit', e => {
   }
 
   if (!formErrors) {
-    const formData = new FormData(form);
+    const submit = form.querySelector('[type=submit]');
+    submit.disabled = true;
+    submit.classList.add('loading');
+
+    console.log('formErrors2',formErrors);
+    console.log('form', form);
+    const formData = new FormData();
+    formData.append('name', document.querySelector('#name').value);
+    formData.append('email', document.querySelector('#email').value);
+    formData.append('title', document.querySelector('#title').value);
+    formData.append('message', document.querySelector('#message').value);
     console.log('formData', formData);
+    for (var p of formData) {
+      console.log(p);
+    }
+
+    // const dataFromForm = {
+    //   name: document.querySelector('#name').value,
+    //   email: document.querySelector('#email').value,
+    //   title: document.querySelector('#title').value,
+    //   message: document.querySelector('#message').value,
+    // };
+    // const dataToSend = JSON.stringify(dataFromForm);
+    // console.log('dataToSend', dataToSend);
+
+    const url = form.getAttribute('action'); 
+    const method = form.getAttribute('method');
+
+    fetch(url, {
+      method: method,
+      body: formData
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log('res', res);
+        if (res.errors) { //błędne pola
+          const selectors = res.errors.map(el => `[name="${el}"]`);
+          const fieldsWithErrors = form.querySelectorAll(selectors.join(','));
+          for (const el of fieldsWithErrors) {
+            markFieldAsError(el, true);
+            toggleErrorField(el, true);
+          }
+        } else { //pola są ok - sprawdzamy status wysyłki
+          if (res.status === 'ok') {
+            //wyświetlamy komunikat powodzenia, cieszymy sie
+          }
+          if (res.status === 'error') {
+            //komunikat błędu, niepowodzenia
+          }
+        }
+      })
+      .finally(() => {
+        submit.disabled = false;
+        submit.classList.remove('loading');
+      });
   }
 });
 

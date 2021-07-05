@@ -165,14 +165,25 @@ form.addEventListener('submit', e => {
     for (var p of formData) {
       contentInFormData.push(p);
     }
-    console.log('contentInFormData:',contentInFormData);
+    console.log('contentInFormData:', contentInFormData);
+
+    const bodyContent = [
+      document.querySelector('#name').value, 
+      document.querySelector('#email').value,
+      document.querySelector('#title').value,
+      document.querySelector('#message').value,
+    ];
+    console.log('bodyContent:', bodyContent);
+    const bodyInJSON = JSON.stringify(bodyContent);
+    console.log('bodyInJSON:', bodyInJSON);
 
     const url = form.getAttribute('action'); 
     const method = form.getAttribute('method');
 
     fetch(url, {
       method: method,
-      body: formData,
+      // body: formData,
+      body: bodyInJSON,
     })
       // .then(res => res.json())
       .then(res => {

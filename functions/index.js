@@ -5,7 +5,7 @@ const cors = require("cors")({origin: true});
 const formData = require("express-form-data");
 const emailValidator = require("email-validator");
 const nodemailer = require("nodemailer");
-// require("dotenv").config();
+require("dotenv").config();
 const bodyParser = require("body-parser");
 
 admin.initializeApp();
@@ -80,8 +80,8 @@ app.post("/fromform", (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: "rkulud@yahoo.com",
-        pass: "wumkgpskfrrimmuo",
+        user: functions.config().myportfolio.user,
+        pass: functions.config().myportfolio.pass,
       },
     });
     // console.log("transporter", transporter);

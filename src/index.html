@@ -7,6 +7,7 @@
 	<title>My portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.json">
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="/__/firebase/8.6.8/firebase-app.js"></script>
   <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -384,5 +385,13 @@
     </div>
   </footer>
   <script src="js/script.js"></script>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function () {
+          console.log('Service Worker Registered');
+        });
+    }
+  </script>
 </body>
 </html>

@@ -26,11 +26,11 @@ var filesToCache = [
   '/images/portfolio-logo.png',
   '/images/portfolio-logo-kolor-na-bialym_small.svg',
   '/images/icons-heroku.svg',
-  '/icons/icon-512x512.png',
-  '/icons/icon-192x192.png',
-  '/icons/icon-152x152.png',
-  '/icons/icon-144x144.png',
-  '/icons/icon-128x128.png'
+  '/images/icons/icon-512x512.png',
+  '/images/icons/icon-192x192.png',
+  '/images/icons/icon-152x152.png',
+  '/images/icons/icon-144x144.png',
+  '/images/icons/icon-128x128.png'
 ];
 
 self.addEventListener('install', function(e) {

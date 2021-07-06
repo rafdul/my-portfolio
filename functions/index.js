@@ -76,22 +76,21 @@ app.post("/fromform", (req, res) => {
     console.log("returnObj66:", returnObj);
   } else {
     const transporter = nodemailer.createTransport({
-      host: "smtp.poczta.onet.pl",
+      host: "smtp.mail.yahoo.com",
       port: 465,
       secure: true,
       auth: {
-        user: "duleq@op.pl",
-        pass: "LE.gia.1916",
+        user: "rkulud@yahoo.com",
+        pass: "wumkgpskfrrimmuo",
       },
     });
     // console.log("transporter", transporter);
 
     const mail = {
-      from: "'MyPortfolio' <duleq@op.pl>",
+      from: "My Portfolio <rkulud@yahoo.com>",
       to: "duleq@op.pl",
       subject: "Wiadomość ze strony portfolio",
       text: `
-        test: testariusz
         Imię: ${fromJSON[0]}
         Email: ${fromJSON[1]}
         Tytuł: ${fromJSON[2]}

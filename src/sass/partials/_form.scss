@@ -9,6 +9,15 @@
     @include subtitle;
   }
 
+  .addresses {
+    text-align: center;
+    margin-bottom: $main-spacing*2;
+
+    h4 {
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+
   .form {
     margin-bottom: $main-spacing*3;
     display: flex;
@@ -112,6 +121,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
+        box-shadow: 0px 0px 10px 3px #1a3d4ac7;
 
         &:hover {
           // color: $color-text-light;

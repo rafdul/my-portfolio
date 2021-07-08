@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#60a3bc"/>
 	<title>My portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -35,9 +36,9 @@
 				</div>
 				<div class="menu">
 					<ul class="menu__main">
-						<li class="menu__main-item"><a href="#about">O mnie</a></li>
-						<li class="menu__main-item"><a href="#projects">Projekty</a></li>
-						<li class="menu__main-item"><a href="#contacts">Kontakt</a></li>
+						<li class="menu__main-item"><a href="#about" class="menuAbout"></a></li>
+						<li class="menu__main-item"><a href="#projects" class="menuProjects"></a></li>
+						<li class="menu__main-item"><a href="#contacts" class="menuContacts"></a></li>
 					</ul>
           <ul class="menu__hamburger">
 						<li class="menu__hamburger-item"></li>
@@ -62,16 +63,16 @@
     <div class="container">
       <nav class="navigation-mobile">
         <ul class="menu__mobile">
-          <li class="menu__mobile-item"><a href="#about">O mnie</a></li>
-          <li class="menu__mobile-item"><a href="#projects">Projekty</a></li>
-          <li class="menu__mobile-item"><a href="#contacts">Kontakt</a></li>
+          <li class="menu__mobile-item"><a href="#about" class="menuAbout"></a></li>
+          <li class="menu__mobile-item"><a href="#projects" class="menuProjects"></a></li>
+          <li class="menu__mobile-item"><a href="#contacts" class="menuContacts"></a></li>
         </ul>
       </nav>
     </div>
   </section>
 	<section id="about">
 		<div class="container">
-			<h2 class="subtitle">O mnie</h2>
+			<h2 class="subtitle menuAbout"></h2>
 			<div class="about">
 				<p>Nazywam się <strong>Rafał Duluk</strong> i jestem początkującym Front-End Developerem. Po kilkunastu latach pracy w marketingu i zarządzaniu produktami potrzebowałem nowych wyzwań. Chęć rozwoju i zapał do zdobywania nowych kwalifikacji stały się impulsem do zrewolucjonizowania ścieżki kariery. W ten sposób zdecydowałem o przekwalifikowaniu się, a przepustką do nowej branży – mam nadzieję – okaże się <strong>ukończenie intensywnego kursu</strong> Kodilli „Web Developer Plus” (Codemy S.A.).</p>
 				<p>Obecnie całą energię poświęcam na rozwijanie zdobytych umiejętności oraz <strong>poznawanie nowych technologii</strong>, które udoskonalą tworzone przeze mnie projekty.</p>
@@ -162,7 +163,7 @@
 	</section>
 	<section id="projects">
 		<div class="container">
-			<h2 class="subtitle">Projekty</h2>
+			<h2 class="subtitle menuProjects"></h2>
 			<div class="projects">
 				<div class="projects__item">
 					<div class="image">
@@ -340,7 +341,7 @@
 	</section>
 	<section id="contacts">
 		<div class="container">
-			<h2 class="subtitle">Kontakt</h2>
+			<h2 class="subtitle menuContacts"></h2>
       <div class="addresses">
         <h4>Masz pytanie? Zadzwoń ( <i class="fa fa-phone" aria-hidden="true"></i> 501 661 819), napisz ( <i class="fa fa-envelope" aria-hidden="true"></i> rafalduluk<i class="fa fa-at" aria-hidden="true"></i>gmail.com) lub wypełnij formularz!</h4>
       </div>
@@ -388,14 +389,22 @@
         </div>
         <div class="footer__menu">
           <ul class="menu__down">
-            <li class="menu__down-item"><a href="#about">O mnie</a></li>
-            <li class="menu__down-item"><a href="#projects">Projekty</a></li>
-            <li class="menu__down-item"><a href="#contacts">Kontakt</a></li>
+            <li class="menu__down-item"><a href="#about" class="menuAbout"></a></li>
+            <li class="menu__down-item"><a href="#projects" class="menuProjects"></a></li>
+            <li class="menu__down-item"><a href="#contacts" class="menuContacts"></a></li>
+            <li class="menu__down-item">
+              <label for="language">Language</label>
+              <select name="language" id="language">
+                <option value="eng">ENG</option>
+                <option value="pol">POL</option>
+              </select>
+            </li>
           </ul>
         </div>
       </div>
     </div>
   </footer>
+  <script src="js/language.js" type="module"></script>
   <script src="js/mobilemenu.js"></script>
   <script src="js/typing.js"></script>
   <script src="js/form.js"></script>

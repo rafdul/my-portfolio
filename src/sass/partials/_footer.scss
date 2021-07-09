@@ -51,6 +51,27 @@
           color: $color-dark;
         }
       }
+
+      .menu__down-lang {
+        border: none;
+        background-color: $color-main;
+        color: $color-text-light;
+        font-family: $font-text;
+        font-size: $base-size*0.7;
+        display: none;
+      }
+    }*0.7
+  }
+}
+
+@media(max-width: 800px) {
+  .footerBox {
+    .footer {
+      &__menu {
+        .menu__down-lang {
+          display: block;
+        }
+      }
     }
   }
 }

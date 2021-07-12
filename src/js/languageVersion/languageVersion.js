@@ -6,6 +6,12 @@ export const eng = {
   },
   about: {
     technology: 'Technologies',
+    text: 
+    `
+      <p>I am <strong>Rafał Duluk</strong> and I begin my career as a Front-End Developer. After dozen years working in marketing and product management I needed new challenges. My willingness to self-development and enthusiasm for achievement of new competences are really strong impulse to revolutionize my career path. So I’ve come to a decision to retrain. First step was <strong>the completion of intensive course</strong> “Web Developer Plus” in Kodilla (Codemy S.A.).</p>
+      <p>Currently I’m expending full of my time and energy to develop of my coding skills and <strong> to know of new technologies</strong> that improve my projects.</p>
+      <p>I encourage you to see my Portfolio! <strong>If you would like to contact with me</strong>, please fill in the form or use the contact details.</p>
+    `
   },
   projects: {
     page: 'Page',
